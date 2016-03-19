@@ -1,3 +1,15 @@
+"""
+This script allows me to automatically pull problem descriptions from projecteuler.net, and then create a .py skeleton for a given problem.
+I use urrlib to fetch the HTML data. I slice the HTML (as a string) around where I need it ( around the textual problem description),
+and then use clean_html (copied from the NLTK package, and then slightly modified), to clean up the html and get rid of tags,
+leaving me with the (almost) pure text I desire. Some of the more complicated mathematical formulations on the site, such as fractions and division,
+aren't rendered properly as text, so I leave them looking ugly. Exponents, and some unicode characters are taken care of however.
+
+I haven't made it so that the script can be run with standard arguments, but if I want to create skeletons for problems x to y,
+I merely have to invoke extractProblems(x,y). This code is far from unbreakable, its just one of many automation scripts I hope to write :)
+"""
+
+
 import time
 startTime = time.clock()
 
