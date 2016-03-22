@@ -11,8 +11,7 @@ import time
 startTime = time.clock()
 
 
-#code
-
+print(str(sum(i**i for i in range(1,1000)))[-10:])
 
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
