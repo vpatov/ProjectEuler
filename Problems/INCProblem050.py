@@ -13,7 +13,27 @@ import time
 startTime = time.clock()
 
 
-#code
+
+
+
+
+MAXPRIME = 1000000
+
+primes = [True] * MAXPRIME
+primes[0] = False
+primes[1] = False
+
+for i in range(2,MAXPRIME):
+    j = i
+    while (j + i < MAXPRIME):
+        j += i
+        primes[j] = False
+
+
+for i in range(0,100000):
+    for j in range(0,i):
+        print(j,i,sum(range(j, i)))
+
 
 
 endTime = time.clock()

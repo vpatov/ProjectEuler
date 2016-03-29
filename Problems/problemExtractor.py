@@ -48,9 +48,20 @@ def clean_html(html):
     cleaned = re.sub(r"(?s)<!--(.*?)-->[\n]?", "", cleaned)
 
 
-    ###Vasia's line.
-    ###Exponents on the website are done with superscripts, here I replace them with a '^'
+    ###Vasia's lines.
+    ###Exponents on the website are done with superscripts, here I replace them with a '^', subscripts with '_'
     cleaned = re.sub(r"<sup>","^",cleaned)
+    cleaned = re.sub(r"<sub>","_",cleaned)
+
+    #turn the unicode multiplication into a simple ascii star *
+    cleaned = re.sub(r"\\xc3\\x97", "*",cleaned)
+    #less than, greater than,subtraction
+    cleaned = re.sub(r"\\xe2\\x89\\xa4", "<=",cleaned)
+    cleaned = re.sub(r"\\xe2\\x89\\xa5", ">=",cleaned)
+    cleaned = re.sub(r"\\xe2\\x88\\x92", "-",cleaned)
+
+    ###End Vasia's lines.
+
 
     # Next we can remove the remaining tags:
     cleaned = re.sub(r"(?s)<.*?>", " ", cleaned)
@@ -73,8 +84,15 @@ def getProblemText(url):
     text = clean_html(str(html))
     #turn newlines into actual newlines
     text = text.replace("\\n",'\n')
-    #turn the unicode multiplication into a simple ascii star *
-    text = text.replace("\\xc3\\x97", "*")
+
+
+    # #turn the unicode multiplication into a simple ascii star *
+    # text = text.replace("\\xc3\\x97", "*")
+    # #less than, greater than
+    # text = text.replace("\\xe2\\x89\\xa4", "<=")
+    # text = text.replace("\\xe2\\x89\\xa5", ">=")
+
+
     #get rid of the \\r's
     text = text.replace("\\r",'')
 
@@ -104,6 +122,6 @@ def extractProblems(start,end=None):
     print("Successfully created "+ str(end+1 - start) + " .py file(s) for problems numbered " + str(start) + " through " +
           str(end))
 
-extractProblems(34,40)
+extractProblems(81,85)
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
