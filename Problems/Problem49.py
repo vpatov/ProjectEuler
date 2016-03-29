@@ -10,8 +10,26 @@
 import time
 startTime = time.clock()
 
+MAXPRIME = 10000
 
-#code
+primes = [True] * MAXPRIME
+primes[0] = False
+primes[1] = False
+
+for i in range(2,MAXPRIME):
+    j = i
+    while (j + i < MAXPRIME):
+        j += i
+        primes[j] = False
+
+for i in range(0,10000 - (6660)):
+    if (i == 1487):
+        continue
+    if primes[i]:
+        if (primes[i+3330] and primes[i+6660]):
+            if set(str(i)) == set(str(i+3330)) and set(str(i+3330)) == set(str(i+6660)):
+                print(str(i)+str(i+3330)+str(i+6660))
+                break
 
 
 endTime = time.clock()
