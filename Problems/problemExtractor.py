@@ -59,6 +59,8 @@ def clean_html(html):
     cleaned = re.sub(r"\\xe2\\x89\\xa4", "<=",cleaned)
     cleaned = re.sub(r"\\xe2\\x89\\xa5", ">=",cleaned)
     cleaned = re.sub(r"\\xe2\\x88\\x92", "-",cleaned)
+    ##arrows
+    cleaned = re.sub(r"\\xe2\\x86\\x92","->",cleaned)
 
     ###End Vasia's lines.
 
@@ -109,7 +111,7 @@ def extractProblems(start,end=None):
     tripleQuotes = '\"\"\"\n'
     for i in range(start,end+1):
         probText = getProblemText(masterUrl + str(i))
-        probName = "INCProblem" + str(i) + ".py"
+        probName = "INCProblem" + ("0"*(3-len(str(i)))) + str(i) + ".py"
         f = open(probName,'w+')
         f.write(tripleQuotes)
         f.write(" " + masterUrl + str(i) + "\n")
@@ -122,6 +124,6 @@ def extractProblems(start,end=None):
     print("Successfully created "+ str(end+1 - start) + " .py file(s) for problems numbered " + str(start) + " through " +
           str(end))
 
-extractProblems(81,85)
+extractProblems(74)
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
