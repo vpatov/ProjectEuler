@@ -12,18 +12,30 @@ import time
 
 startTime = time.clock()
 
-#code
+##solution inspired by solution to another similar problem
 numWays = 0
 i = 200
 while (i >= 0):
     j = i
     while (j >= 0):
         k = j
-        while (k >= 0):
+        while ( k >= 0):
             l = k
             while (l >= 0):
-                x = 0
-
+                m = l
+                while (m >= 0):
+                    n = m
+                    while (n >= 0):
+                        o = n
+                        while (o >= 0):
+                            numWays += 1
+                            o -= 2
+                        n -= 5
+                    m -= 10
+                l -= 20
+            k -= 50
+        j -= 100
+    i -= 200
 print(numWays)
 
 
