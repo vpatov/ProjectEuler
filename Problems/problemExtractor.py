@@ -27,7 +27,7 @@ print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
 
 
 import re
-import urllib.request
+import urllib2
 
 ##copied from stackoverflow
 ## https://stackoverflow.com/questions/26002076/python-nltk-clean-html-not-implemented
@@ -76,11 +76,12 @@ def clean_html(html):
 
 
 def getProblemText(url):
-    with urllib.request.urlopen(url) as response:
-       html = str(response.read())
-       probName = html[html.index("<h2>") + len("<h2>"):html.index("</h2>")]
-       html = html[html.index('<div class="problem_content" role="problem">'):]
-       html = html[:html.index('<div id="footer" class="noprint">')]
+    request = urllib2.Request(url)
+    response = urllib2.urlopen(request)
+    html = str(response.read())
+    probName = html[html.index("<h2>") + len("<h2>"):html.index("</h2>")]
+    html = html[html.index('<div class="problem_content" role="problem">'):]
+    html = html[:html.index('<div id="footer" class="noprint">')]
 
 
     text = clean_html(str(html))
@@ -124,6 +125,6 @@ def extractProblems(start,end=None):
     print("Successfully created "+ str(end+1 - start) + " .py file(s) for problems numbered " + str(start) + " through " +
           str(end))
 
-extractProblems(74)
+extractProblems(158)
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

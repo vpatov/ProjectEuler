@@ -11,8 +11,16 @@
 import time
 startTime = time.clock()
 
+#24x + 1 is a perfect square if x is pentagonal
+squares = set([i*i for i in range(1,1000000)])
+pents = set([(3*i*i - i) / 2 for i in range(1,1000000)])
 
-#code
+for i in range(1,1000000):
+    x = (24*i) + 1
+    if x in squares:
+        if i in pents:
+            print (i)
+
 
 
 endTime = time.clock()

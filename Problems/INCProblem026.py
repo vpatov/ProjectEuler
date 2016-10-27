@@ -1,5 +1,6 @@
 """
-A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
+A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions
+with denominators 2 to 10 are given:
 
 1/2	= 	0.5
 1/3	= 	0.(3)
@@ -53,6 +54,6 @@ for i in range(1,1000):
         max = term
         maxD = i
 
-
+print((max,maxD))
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")
