@@ -125,6 +125,6 @@ def extractProblems(start,end=None):
     print("Successfully created "+ str(end+1 - start) + " .py file(s) for problems numbered " + str(start) + " through " +
           str(end))
 
-extractProblems(158)
+extractProblems(102)
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
