@@ -16,18 +16,14 @@ import time
 import operator
 startTime = time.clock()
 
-
 def prod(iterable):
     return reduce(operator.mul, iterable, 1)
 
 def vec_sub(v1,v2):
     return tuple([i - j for i,j, in zip(v1,v2)])
 
-
 def dot(v1,v2):
     return sum([prod(i) for i in zip(v1,v2)])
-
-
 
 ##Algorithm taken from http://blackpawn.com/texts/pointinpoly/
 ##Very easy to implement
