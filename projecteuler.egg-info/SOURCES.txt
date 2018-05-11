@@ -1,9 +1,0 @@
-README.md
-projecteuler/__init__.py
-projecteuler.egg-info/PKG-INFO
-projecteuler.egg-info/SOURCES.txt
-projecteuler.egg-info/dependency_links.txt
-projecteuler.egg-info/top_level.txt
-projecteuler/utils/getinput.py
-projecteuler/utils/problem_getter.py
-projecteuler/utils/sieve_atkin.py
