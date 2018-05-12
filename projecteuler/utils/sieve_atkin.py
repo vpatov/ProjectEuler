@@ -1,19 +1,15 @@
-# """
-# It seems that prime number generation is a frequently reoccurring subtask when solving Project Euler problems...
-# I've been using the Sieve of Erastosthenes, which is relatively efficient O(N * log (log N)), but I just read that the Sieve of Atkin
-# can perform faster, in O(N) time. So I'm going to take the algorithm from the wikipedia page -
+"""
+It seems that prime number generation is a frequently reoccurring subtask when solving Project Euler problems...
+I've been using the Sieve of Erastosthenes, which is relatively efficient O(N * log (log N)), but I just read that the Sieve of Atkin
+can perform faster, in O(N) time. So I'm going to take the algorithm from the wikipedia page -
+
+     "https://en.wikipedia.org/wiki/Sieve_of_Atkin"
+
+and attempt to implement it here, in Python.
+
+
+"""
 #
-#     "https://en.wikipedia.org/wiki/Sieve_of_Atkin"
-#
-# and attempt to implement it here, in Python.
-#
-#
-#
-#
-# """
-#
-import time
-startTime = time.clock()
 #
 # # The algorithm:
 # # 1. Create a results list, filled with 2, 3, and 5.
@@ -154,8 +150,13 @@ startTime = time.clock()
 
 
 import math
+import time
+import sys
+import json
+import os
+import numpy as np
 
-def sieveOfAtkin(limit):
+def sieve_atkin(limit):
     P = [2,3]
     sieve=[False]*(limit+1)
     for x in range(1,int(math.sqrt(limit))+1):
@@ -174,12 +175,27 @@ def sieveOfAtkin(limit):
         if sieve[p] : P.append(p)
     return P
 
-ONEMILLION = 1000000
+def sieve_atkin_nump(limit):
+  pass 
 
-primes = sieveOfAtkin(ONEMILLION)
-#print(primes)
-endTime = time.clock()
-print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")
+
+if __name__ == '__main__':
+  startTime = time.clock()
+  
+  limit = int(sys.argv[1])  
+
+  if len(sys.argv) == 3:
+    target_dir = sys.argv[2]
+  else:
+    target_dir = '.'
+
+  primes = sieve_atkin(limit)
+  filename = 'primes_up_to_' + str(limit) + '.json'
+
+  with open(os.path.join(target_dir,filename),'w') as f:
+    json.dump(primes,f)
+  endTime = time.clock()
+  print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")
 
 
 
