@@ -107,7 +107,7 @@ def extractProblems(start,end,target_dir):
     tripleQuotes = '\"\"\"\n'
     for i in range(start,end+1):
         probText = getProblemText(masterUrl + str(i))
-        probName = ("0"*(3-len(str(i)))) + str(i) + ".py"
+        probName = "p" + ("0"*(3-len(str(i)))) + str(i) + ".py"
         f = open(os.path.join(target_dir,probName),'w+')
         f.write(tripleQuotes)
         f.write(" " + masterUrl + str(i) + "\n")

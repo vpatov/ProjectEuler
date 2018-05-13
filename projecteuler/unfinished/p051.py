@@ -17,9 +17,14 @@
 """
 
 import time
+import itertools
+import numpy as np
+from projecteuler.utils.getprimes import getprimes
 startTime = time.clock()
 
+primes = getprimes()
 
+ 
 
 
 endTime = time.clock()
