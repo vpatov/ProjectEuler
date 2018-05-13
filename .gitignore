@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Numpy binary files
+*.npy
+
+# JSONs
+*.json
+
+
 # Distribution / packaging
 .Python
 build/

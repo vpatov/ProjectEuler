@@ -7,13 +7,13 @@
 
 
 void sieve_atkin(unsigned long long *primes, unsigned short *sieve, size_t limit){
-  int i, x, y, n, p, primes_index, sqrt_limit;
+  long i, x, y, n, p, primes_index, sqrt_limit;
   size_t total_length;
   primes_index = 0;
 
   primes[primes_index++] = 2;
   primes[primes_index++] = 3;
-  sqrt_limit = (int)(sqrt(limit)) + 1;
+  sqrt_limit = (long)(sqrt(limit)) + 1;
   
   for (x = 1; x < sqrt_limit; x++){
     for (y = 1; y < sqrt_limit; y++){
@@ -49,29 +49,6 @@ void sieve_atkin(unsigned long long *primes, unsigned short *sieve, size_t limit
   }
   total_length = primes_index;
 
-  /*
-The first 6 bytes are a magic string: exactly “x93NUMPY”.
-
-The next 1 byte is an unsigned byte: the major version number of the file format, e.g. x01.
-
-The next 1 byte is an unsigned byte: the minor version number of the file format, e.g. x00. Note: the version of the file format is not tied to the version of the numpy package.
-
-The next 2 bytes form a little-endian unsigned short int: the length of the header data HEADER_LEN.
-
-The next HEADER_LEN bytes form the header data describing the array’s format. It is an ASCII string which contains a Python literal expression of a dictionary. It is terminated by a newline (‘n’) and padded with spaces (‘x20’) to make the total length of the magic string + 4 + HEADER_LEN be evenly divisible by 64 for alignment purposes.
-
-The dictionary contains three keys:
-
-“descr” : dtype.descr
-An object that can be passed as an argument to the numpy.dtype() constructor to create the array’s dtype.
-“fortran_order” : bool
-Whether the array data is Fortran-contiguous or not. Since Fortran-contiguous arrays are a common form of non-C-contiguity, we allow them to be written directly to disk for efficiency.
-“shape” : tuple of int
-The shape of the array.
-For repeatability and readability, this dictionary is formatted using pprint.pformat() so the keys are in alphabetic order.
-
-Following the header comes the array data. If the dtype contains Python objects (i.e. dtype.hasobject is True), then the data is a Python pickle of the array. Otherwise the data is the contiguous (either C- or Fortran-, depending on fortran_order) bytes of the array. Consumers can figure out the number of bytes by multiplying the number of elements given by the shape (noting that shape=() means there is 1 element) by dtype.itemsize.
-  */
   printf("Primes calculation successful.\n");
   
   char filename[256];
@@ -136,7 +113,8 @@ Following the header comes the array data. If the dtype contains Python objects 
 
 
 int main(int argc, char **argv){
-  int i, limit;
+  int i;
+  long limit, approx_num_primes;
   unsigned short *sieve;
   unsigned long long *primes;
   
@@ -145,13 +123,15 @@ int main(int argc, char **argv){
     return 1;
   }
   
-  limit = atoi(argv[1]);
+  limit = atoll(argv[1]);
 
   if (limit < 5){
     printf("limit is too small.\n");
   }
+ 
+  approx_num_primes = (unsigned long)((limit / log(limit)) * (1 + (1.2762 / log(limit))));
   
-  primes =  calloc(limit*1, sizeof(unsigned long long));
+  primes =  calloc(approx_num_primes, sizeof(unsigned long));
   sieve =   calloc(limit+1, sizeof(unsigned short));  
   sieve_atkin(primes, sieve, limit);
 
