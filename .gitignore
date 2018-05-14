@@ -12,6 +12,8 @@ __pycache__/
 # JSONs
 *.json
 
+# Sieve of Atkin binary
+projecteuler/utils/sieve_atkin
 
 # Distribution / packaging
 .Python
