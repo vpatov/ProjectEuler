@@ -13,10 +13,10 @@ void sieve_atkin(unsigned long long *primes, unsigned short *sieve, size_t limit
 
   primes[primes_index++] = 2;
   primes[primes_index++] = 3;
-  sqrt_limit = (long)(sqrt(limit)) + 1;
+  sqrt_limit = (long)(sqrt(limit));
   
-  for (x = 1; x < sqrt_limit; x++){
-    for (y = 1; y < sqrt_limit; y++){
+  for (x = 1; x < sqrt_limit + 1; x++){
+    for (y = 1; y < sqrt_limit + 1; y++){
       n = (4*x*x) + (y*y);
       if (n <= limit && (n % 12 == 1 || n % 12 == 5)){
         sieve[n] = !sieve[n];
@@ -34,7 +34,7 @@ void sieve_atkin(unsigned long long *primes, unsigned short *sieve, size_t limit
 
     }
   }
-  for (x = 5; x < sqrt_limit - 1; x++){
+  for (x = 5; x < sqrt_limit; x++){
     if (sieve[x]){
       for (y = x*x; y < limit+1; y += x*x){
         sieve[y] = 0;

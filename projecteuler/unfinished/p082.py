@@ -19,10 +19,54 @@ $$
 """
 
 import time
+from projecteuler.utils.getinput import getinput
+from queue import PriorityQueue
 startTime = time.clock()
 
 
-#code
+def inbounds(matrix,coors):
+  row,col = coors
+  return not (row < 0 or row >= len(matrix) or col < 0 or col >= len(matrix))
+
+test_matrix = [
+  [161,673,234,103,18],
+  [201,96,342,965,150],
+  [630,803,746,422,111],
+  [537,699,497,121,956],
+  [805,732,524,37,331]
+]
+
+
+matrix = [[int(num) for num in line.split(',')] for line in getinput(82).readlines()]
+test_length = 10
+matrix = [row[:test_length] for row in matrix[:test_length]]
+
+search_queue = PriorityQueue()
+
+for row in range(0,len(matrix)):
+  search_queue.put((matrix[row][0],row,0))
+
+while(True):
+  distance,row,col = search_queue.get()
+  if col == len(matrix) - 1:
+    print(distance)
+    break
+
+  candidates = [(row+1,col),(row-1,col),(row,col+1)]  
+  for candidate in candidates:
+    if inbounds(matrix,candidate):
+      row,col = candidate
+      search_queue.put((matrix[row][col] + distance,row,col))
+
+
+
+
+# Idea - perform A* search. Start from anywhere in left column, and end anywhere in right, and find minimal path sum.
+# With this, you know for sure that the first column will only have one entry, as will the last.
+
+
+
+
 
 
 endTime = time.clock()
