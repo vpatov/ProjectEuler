@@ -9,7 +9,7 @@ def getprimes():
 
 
 def getprimeset():
-  with open(os.path.join(os.path.dirname(__file__),'largeprimeset.pickle'),'rb') as f:
+  with open(os.path.join(os.path.dirname(__file__),'primeset1e8.pickle'),'rb') as f:
     nums = pickle.load(f)
   return nums
 

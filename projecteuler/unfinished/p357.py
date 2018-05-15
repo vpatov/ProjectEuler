@@ -11,15 +11,17 @@ Find the sum of all positive integers n not exceeding 100 000 000 such that
 for every divisor d of n , d + n / d is prime.
 """
 import time
-from projecteuler.utils.getprimes import getprimes
+from projecteuler.utils.getprimes import getprimes, getprimeset
 from functools import reduce
 import numpy as np
 import itertools
+import cProfile
 startTime = time.clock()
 
 
 primes = getprimes()
-subset = set(primes[:100000000])
+subset = primes[:np.argmax(primes > 1e8)]
+primeset = getprimeset()
 print("Created set of primes")
 
 def getprimefactors(n):
@@ -33,6 +35,10 @@ def getprimefactors(n):
       index += 1
   return primefactors
 
+def factors(n):    
+  return set(reduce(list.__add__, 
+    ([i, n//i] for i in range(1, int(pow(n, 0.5) + 1)) if n % i == 0)))
+
 def getdivisors(n):
   primefactors = getprimefactors(n)
   divisors = set([1,n])
@@ -42,23 +48,25 @@ def getdivisors(n):
   return divisors
 
 def satisfies(n):
-  divisors = getdivisors(n)
+  divisors = factors(n)
   for d in divisors:
-    if (d + (n//d)) not in subset:
+    r = (d + (n//d)) 
+    if r not in primeset:
       return False
   return True
 
 
-nums = []
-for i in range(1,1000):
-  if satisfies(i):
-    nums.append(i)
+def run():
+  nums = []
+  for i in range(1,1000000):
+    if i in primeset:
+      continue
+    if satisfies(i):
+      nums.append(i)
+  return nums
 
 
-for num in nums:
-  print((num + 1) % 4)
+nums = run()
 
-
-#code
 endTime = time.clock()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')
