@@ -12,8 +12,32 @@
 """
 
 import time
+from projecteuler.utils.getprimes import getprimes, getprimeset
 startTime = time.clock()
 
+primes = getprimes()[:100000]
+primeset = getprimeset()
+print("Created primeset")
+
+nums = ['3','7','109','673']
+
+
+def get_num():
+  for prime in primes:
+    if prime in [3,7,109,673]:
+      continue
+    strnum = str(prime)
+    for num in nums:
+      c1,c2 = int(strnum + num), int(num + strnum)
+      if c1 in primeset and c2 in primeset:
+        nums.append(strnum)
+        return nums
+      else:
+        break
+
+print(get_num())
+    
+    
 
 #code
 
