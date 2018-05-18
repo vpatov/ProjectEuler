@@ -97,7 +97,7 @@ def extractProblems(start,end,target_dir):
     
     startTime = time.clock()
     template = (
-      "import time\n" "startTime = time.clock()\n" "\n" "#code\n" "endTime = time.clock()\n"
+      "import time\n" "import numpy as np\n" "startTime = time.clock()\n" "\n" "#code\n" "endTime = time.clock()\n"
       "print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')\n"
     )
 

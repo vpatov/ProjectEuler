@@ -97,6 +97,7 @@ def main():
                 break
   return longest_set, longest_numbers, longest_results
 
+"""
 import sys
 prof = cProfile.Profile()
 retval = prof.runcall(main)
@@ -104,7 +105,9 @@ retval = prof.runcall(main)
 longest_set, longest_numbers, longest_results = retval
 
 prof.print_stats()
+"""
 
-
+longest_set, longest_numbers, longest_results = main()
+print(''.join([str(i) for i in sorted(longest_numbers)]))
 endTime = time.clock()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')
