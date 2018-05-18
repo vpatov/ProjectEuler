@@ -101,13 +101,20 @@ def extractProblems(start,end,target_dir):
       "print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')\n"
     )
 
+
     if (end == None):
         end = start
     masterUrl = "https://projecteuler.net/problem="
     tripleQuotes = '\"\"\"\n'
+    count_written = 0
     for i in range(start,end+1):
-        probText = getProblemText(masterUrl + str(i))
+      
         probName = "p" + ("0"*(3-len(str(i)))) + str(i) + ".py"
+        if os.path.isfile(os.path.join(target_dir,probName)):
+          print("Not overwriting %s - already exists" % probName)
+          continue
+        probText = getProblemText(masterUrl + str(i))
+      
         f = open(os.path.join(target_dir,probName),'w+')
         f.write(tripleQuotes)
         f.write(" " + masterUrl + str(i) + "\n")
@@ -116,8 +123,9 @@ def extractProblems(start,end,target_dir):
         f.write(tripleQuotes)
         f.write(template)
         f.close()
+        count_written += 1
 
-    print("Successfully created "+ str(end+1 - start) + " .py file(s) for problems numbered " + str(start) + " through " +
+    print("Successfully created "+ str(count_written) + " .py file(s) for problems numbered " + str(start) + " through " +
           str(end))
   
     endTime = time.clock()
