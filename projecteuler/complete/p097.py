@@ -10,6 +10,19 @@ import time
 import numpy as np
 startTime = time.clock()
 
-#code
+basenum = 28433
+num = basenum
+p = 1
+target = 7830457
+num *= 2
+while (p < target):
+  num *= 2
+  p += 1
+  num = int(str(num)[-12:])
+
+print(str(num + 1)[-10:])
+
+
+
 endTime = time.clock()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

@@ -20,6 +20,16 @@ import time
 
 startTime = time.clock()
 
+for d in range(1,1000):
+  num = 1/d
+  print(num)
+
+
+
+
+
+# throwback to back when I used camelCase <cringe>
+"""
 def oneLongDivBy(n):
     quot = '0.'
     if (10 % n == 0):
@@ -55,5 +65,7 @@ for i in range(1,1000):
         maxD = i
 
 print((max,maxD))
+"""
+
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")
