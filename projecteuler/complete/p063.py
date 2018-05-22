@@ -11,7 +11,22 @@ import time
 startTime = time.clock()
 
 
-#code
+count = 0
+p = 1
+while(p < 1000):
+  i = 1
+  num = i**p
+  while len(str(num)) <= p:
+    if len(str(num)) == p:
+      count+=1
+    i += 1
+    num = i**p
+
+  p+=1
+
+print(count)
+
+
 
 
 endTime = time.clock()
