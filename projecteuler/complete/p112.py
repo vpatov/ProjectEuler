@@ -28,31 +28,63 @@ startTime = time.clock()
 #      higher. If it is lower, than we have picked an upper bound that is too low. If it is higher, then we just need to find the non-bouncy numbers 
 #      that are closest to that 99% boundary (if its not a non-bouncy number directly on the boundary), and then simply iterate downwards from there 
 
+## TODO TODO Bug
+# you forgot to count the decreasing numbers that end with zeros (like 64420)
+# fix it by generating from 0 instead of 1, and getting rid of leading zeros
+# with the int function
+# answer = 1587000
 
-
-numdigits = 8
-start_digit = 3
+digit_limit = 8
 
 
 """
 Clearly there cannot be any bouncy numbers below one-hundred, but just over half of the numbers below one-thousand (525) are bouncy. In fact, the least number for which the proportion of bouncy numbers first reaches 50% is 538.
 """
 
-def generate_increasing():
-  iter_recur(9,1,10,[])
+increasing, decreasing = set(),set()
 
-def iter_recur(depth,start,bound,variables):
-  #print("iter_recur called with {} {} {} {}".format(depth,start,bound,variables))
+def _gen(depth,start,bound,variables):
   if depth == 0:
     for i in range(variables[-1],bound):
-      print(variables + [i])
+      #increasing.add(''.join([str(num) for num in variables + [i]]))
+      increasing.add(''.join([str(num) for num in variables + [i]]))
   else:
     for i in range(variables[-1] if len(variables) != 0 else start,bound):
-      iter_recur(depth-1,start,bound,variables + [i])
+      _gen(depth-1,start,bound,variables + [i])
 
+def generate_non_bouncy(digits):
+  _gen(digits-1,0,10,[])
 
-generate_increasing()
+for digits in range(2,digit_limit):  
+  generate_non_bouncy(digits)  
 
+for num in increasing:
+  # add the reverse of every increasing number to the decreasing numbers
+  # but dont double count monodigit numbers (i.e. 222, 5555555)
+  if num != num[::-1]:
+    decreasing.add(num[::-1])
+
+# add 1-10 this way because easier
+for num in list(range(1,10)):
+  increasing.add(str(num))
+
+increasing = set([int(num) for num in increasing])
+decreasing = set([int(num) for num in decreasing])
+increasing.remove(0)
+
+nonbouncy = sorted(list(increasing.union(decreasing)))
+
+for i in range(2,len(nonbouncy)):
+  ratio = i / nonbouncy[i]
+  if ratio <= 0.01:
+    answer = i
+    break
+
+print(answer * 100)
+
+total = int('9'*digit_limit)
+#print(len(increasing) + len(decreasing), total)
+#print(1 - ((len(increasing) + len(decreasing)) / total))
 
 endTime = time.clock()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
