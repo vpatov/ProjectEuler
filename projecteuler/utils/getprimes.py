@@ -3,7 +3,7 @@ import os
 import pickle
 
 def getprimes():
-  with open(os.path.join(os.path.dirname(__file__),'largeprimes.npy'),'rb') as f:
+  with open(os.path.join(os.path.dirname(__file__),'primes.npy'),'rb') as f:
     nums = np.load(f)
   return nums
 

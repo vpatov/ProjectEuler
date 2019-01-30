@@ -76,7 +76,6 @@ def main():
     for c in range(d+1,10):
       for b in range(c+1,10):
         for a in range(b+1,10):
-          print(a,b,c,d)
           operator_combinations = itertools.product(*['*/-+']*3)
           results = np.zeros(limit)
           for combo in operator_combinations:

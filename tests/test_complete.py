@@ -1,9 +1,11 @@
 import os
 from colorama import Fore as clr
+
+filedir = os.path.dirname(os.path.realpath(__file__))
 programs = sorted(filter(
     lambda name: name not in ['__init__', '__pycache__'], [
         os.path.basename(os.path.splitext(fname)[0])
-        for fname in os.listdir(os.path.join('..', 'projecteuler', 'complete'))
+        for fname in os.listdir(os.path.abspath(os.path.join(filedir,os.pardir, 'projecteuler', 'complete')))
     ])
 )
 
