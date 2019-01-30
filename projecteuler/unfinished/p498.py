@@ -13,8 +13,8 @@ We can verify that C(6, 3, 1) = 24 and C(100, 10, 4) = 227197811615775.
 """
 import time
 import numpy as np
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #code
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

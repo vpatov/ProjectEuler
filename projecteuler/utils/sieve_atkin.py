@@ -39,7 +39,7 @@ def sieve_atkin_nump(limit):
 
 
 if __name__ == '__main__':
-  startTime = time.clock()
+  startTime = time.perf_counter()
   
   limit = int(sys.argv[1])  
 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
   with open(os.path.join(target_dir,filename),'wb') as f:
     np.save(f,primes)
-  endTime = time.clock()
+  endTime = time.perf_counter()
   print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")
 
 

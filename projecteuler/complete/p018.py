@@ -14,7 +14,7 @@ That is, 3 + 7 + 4 + 9 = 23.
 
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 f = getinput(18)
 grid = []
@@ -40,5 +40,5 @@ print(grid[0][0])
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

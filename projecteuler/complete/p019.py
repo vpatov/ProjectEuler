@@ -15,7 +15,7 @@ How many Sundays fell on the first of the month during the twentieth century (1 
 import time
 import datetime
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 startDate = datetime.date(1901,1,1)
 day = datetime.timedelta(1)
@@ -30,5 +30,5 @@ while (startDate != endDate):
 print(countSundays)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

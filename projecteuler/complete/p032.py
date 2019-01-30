@@ -13,7 +13,7 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 def pandigital(n):
@@ -43,5 +43,5 @@ for i in range(12,99):
 
 print(sum(products))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

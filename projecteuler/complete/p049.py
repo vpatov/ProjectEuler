@@ -8,7 +8,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 MAXPRIME = 10000
 
@@ -32,5 +32,5 @@ for i in range(0,10000 - (6660)):
                 break
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

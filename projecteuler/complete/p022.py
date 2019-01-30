@@ -11,7 +11,7 @@ What is the total of all the name scores in the file?
 
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 names = None
 
@@ -35,5 +35,5 @@ for i in range(0,len(names)):
 
 print(totalScore)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

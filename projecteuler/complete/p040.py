@@ -10,7 +10,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 sequence = ['1'] * 1000500
 length = 0
@@ -27,5 +27,5 @@ print(int(sequence[0]) * int(sequence[9]) * int(sequence[99]) * int(sequence[999
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

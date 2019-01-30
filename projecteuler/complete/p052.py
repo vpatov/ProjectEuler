@@ -9,7 +9,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def eligibleNum(x):
     nums = [str(x*i) for i in range(1,7)]
@@ -26,5 +26,5 @@ while(True):
         break
     i += 1
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

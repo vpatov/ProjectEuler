@@ -10,7 +10,7 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
 import time
 import itertools
-startTime = time.clock()
+startTime = time.perf_counter()
 
 perms = list(itertools.permutations('0123456789'))
 print(''.join(list(perms[999999])))
@@ -19,5 +19,5 @@ print(''.join(list(perms[999999])))
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

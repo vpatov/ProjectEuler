@@ -10,7 +10,7 @@ Find the product abc.
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 a = 1
 b = 2
@@ -29,5 +29,5 @@ while (a < 1000 and not found):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

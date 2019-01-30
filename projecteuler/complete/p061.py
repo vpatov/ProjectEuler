@@ -43,7 +43,7 @@
 
 import time
 from collections import defaultdict
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 # Plan:
@@ -129,7 +129,7 @@ for number in all_cycles:
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
 
 

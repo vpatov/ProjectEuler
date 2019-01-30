@@ -9,8 +9,8 @@
  How many reversible numbers are there below one-billion (10^9 )?
 """
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #code
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

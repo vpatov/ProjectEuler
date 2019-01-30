@@ -13,7 +13,7 @@
 
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 
@@ -63,5 +63,5 @@ print(mat[0][0])
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

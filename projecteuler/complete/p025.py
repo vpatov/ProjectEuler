@@ -24,7 +24,7 @@ What is the index of the first term in the Fibonacci sequence to contain 1000 di
 import time
 
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 fibs = [1,1,1,2]
 i = len(fibs)
@@ -38,5 +38,5 @@ while (True):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

@@ -10,7 +10,7 @@
 
 import time
 from fractions import Fraction
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def digitCancelling(i,j):
     m = set(str(i))
@@ -51,5 +51,5 @@ print(prod.denominator)
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

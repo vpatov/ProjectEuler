@@ -24,7 +24,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 (tNums, hNums, pNums) = (set(),set(),set())
 
@@ -64,5 +64,5 @@ while(True):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

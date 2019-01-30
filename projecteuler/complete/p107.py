@@ -1,6 +1,6 @@
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 testinput = """- 16  12  21  - - -
@@ -43,5 +43,5 @@ while len(visited) != len(matrix):
 
 print(int(start_weight - minimized_weight))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

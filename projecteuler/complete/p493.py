@@ -11,12 +11,12 @@ import numpy as np
 from functools import reduce
 from operator import mul
 from fractions import Fraction
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 def nCk(n,k):
   return int(reduce(mul, (Fraction(n-i, i+1) for i in range(k)), 1))
 print(3 * (1 - (nCk(4,3) / nCk(6,3))))
 print('{:.9f}'.format(7 * (1 - (nCk(60,20) / nCk(70,20)))))
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

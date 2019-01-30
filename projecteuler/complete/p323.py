@@ -13,7 +13,7 @@ Give your answer rounded to 10 digits after the decimal point.
 """
 import time
 import numpy as np
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 # Probability distribution 
@@ -39,5 +39,5 @@ for n in range(1,100000):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

@@ -12,7 +12,7 @@
 import time
 import numpy as np
 import math as math
-startTime = time.clock()
+startTime = time.perf_counter()
 
 target = 1000000
 
@@ -70,5 +70,5 @@ for i in range(2,target):
 
 print(min(longest_chain))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

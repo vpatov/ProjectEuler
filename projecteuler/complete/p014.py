@@ -17,7 +17,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 lengths = dict()
 
@@ -50,5 +50,5 @@ print(longestStarting)
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

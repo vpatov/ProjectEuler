@@ -16,7 +16,7 @@ sqrt(2) = 1 + 1/(2 + 1/(2 + 1/(2 + ... ))) = 1.414213...
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 from fractions import Fraction
 import sys
 sys.setrecursionlimit(1100)
@@ -54,5 +54,5 @@ print(count)
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

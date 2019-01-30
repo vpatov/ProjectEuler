@@ -16,7 +16,7 @@ import colorama
 from functools import reduce
 from fractions import Fraction
 from operator import mul
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 
@@ -103,5 +103,5 @@ for p1 in range(1,s1+1):
         #print()
 print(p_wins,total)
 """
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

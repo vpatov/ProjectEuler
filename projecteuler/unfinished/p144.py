@@ -23,7 +23,7 @@ import math
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 class line:
     def __init__(self,m,b):
@@ -112,5 +112,5 @@ print count
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

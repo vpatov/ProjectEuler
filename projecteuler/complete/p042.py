@@ -14,7 +14,7 @@
 import os
 from projecteuler.utils.getinput import getinput
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 f = getinput(42)
@@ -40,5 +40,5 @@ def isTWord(word):
 print(sum(1 for word in words if isTWord(word)))
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

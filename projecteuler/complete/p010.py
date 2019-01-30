@@ -6,7 +6,7 @@ Find the sum of all the primes below two million.
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 MAXPRIME = 2000000
@@ -31,5 +31,5 @@ while (index < MAXPRIME):
 print(sum)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

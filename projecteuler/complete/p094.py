@@ -9,7 +9,7 @@
 import time
 import numpy as np
 import math
-startTime = time.clock()
+startTime = time.perf_counter()
 
 # recurrence relation that generates sides of the triangles
 # https://oeis.org/A120893
@@ -50,5 +50,5 @@ for i in range(2,20):
 print(sum_perimeters)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

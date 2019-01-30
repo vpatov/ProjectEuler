@@ -7,7 +7,7 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 """
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 sum = 0
 fibNums = [1,2]
@@ -22,7 +22,7 @@ while (fibNums[index] < 4000000):
 print(sum)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
 
 

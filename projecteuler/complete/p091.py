@@ -17,7 +17,7 @@
 import time
 from functools import reduce
 from operator import mul
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def dot(it1,it2):
   return sum([reduce(mul,nums) for nums in zip(it1,it2)])
@@ -42,5 +42,5 @@ for x1 in range(0,limit):
             break
 
 print(count // 2)
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

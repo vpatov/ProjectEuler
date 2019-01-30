@@ -9,7 +9,7 @@
 import time
 import numpy as np
 from projecteuler.utils.getprimes import getprimes
-startTime = time.clock()
+startTime = time.perf_counter()
 
 target = 150_000_000
 
@@ -49,5 +49,5 @@ for ind in indeces:
     print(ind-1,primes[ind-1])
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

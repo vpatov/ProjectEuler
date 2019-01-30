@@ -24,7 +24,7 @@
 
 # we don't have to generate the bottom right diagonal, they are all composite (the odd squares)
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 from math import sqrt
 
@@ -70,5 +70,5 @@ while (ratio > 0.1):
     sideLength += 2
 
 print(sideLength)
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

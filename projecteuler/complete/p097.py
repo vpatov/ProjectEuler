@@ -8,7 +8,7 @@
 """
 import time
 import numpy as np
-startTime = time.clock()
+startTime = time.perf_counter()
 
 basenum = 28433
 num = basenum
@@ -24,5 +24,5 @@ print(str(num + 1)[-10:])
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

@@ -18,7 +18,7 @@ import zipfile
 
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def string_islex(input):
     one = False
@@ -186,5 +186,5 @@ for n in range(2,5):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print "Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds."

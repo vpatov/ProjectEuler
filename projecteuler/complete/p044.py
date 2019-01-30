@@ -17,7 +17,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 pents = [((3*i*i) - i) // 2 for i in range(1,10000)]
 checkpents = set(pents)
@@ -35,5 +35,5 @@ for i in range(0,len(pents)):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

@@ -12,7 +12,7 @@
 
 import time
 import itertools
-startTime = time.clock()
+startTime = time.perf_counter()
 
 # Strategy - since the bouncy numbers are far more numerous (we are in particular interested in the number beneath which 99% of the numbers are bouncy).
 # it is far better (and easier) to enumerate the non-bouncy numbers, that is, the increasing and decreasing numbers. The steps will be approximately
@@ -86,5 +86,5 @@ total = int('9'*digit_limit)
 #print(len(increasing) + len(decreasing), total)
 #print(1 - ((len(increasing) + len(decreasing)) / total))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

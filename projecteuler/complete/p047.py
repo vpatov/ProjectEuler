@@ -12,7 +12,7 @@
 import time
 from projecteuler.utils.getprimes import getprimes
 from collections import defaultdict as dd
-startTime = time.clock()
+startTime = time.perf_counter()
 
 primes = getprimes()
 
@@ -48,5 +48,5 @@ for i in range(2,limit):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

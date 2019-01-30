@@ -11,7 +11,7 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 def numLetters(n):
@@ -45,5 +45,5 @@ def numLetters(n):
 
 print(sum(numLetters(x) for x in range(1,1001)))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

@@ -10,7 +10,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 maxSum = 0
 for a in range(1,100):
@@ -20,5 +20,5 @@ for a in range(1,100):
             maxSum = val
 
 print(maxSum)
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

@@ -6,7 +6,7 @@ https://projecteuler.net/problem=13
 
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 f = getinput(13)
 
@@ -16,5 +16,5 @@ for line in f:
 
 print(str(sum)[0:10])
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

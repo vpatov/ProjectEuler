@@ -9,7 +9,7 @@ Find the sum of the digits in the number 100!
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 prod = 1
 for i in range(1,101):
@@ -18,5 +18,5 @@ for i in range(1,101):
 print(sum(int(x) for x in list(str(prod))))
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

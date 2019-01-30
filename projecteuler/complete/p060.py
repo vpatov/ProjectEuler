@@ -15,7 +15,7 @@ import time
 import numpy as np
 from math import sqrt
 from projecteuler.utils.getprimes import getprimes, getprimeset
-startTime = time.clock()
+startTime = time.perf_counter()
 
 primes = getprimes()
 primes = [str(p) for p in primes[:np.argmax(primes > 100_000_000)][1:]]
@@ -119,5 +119,5 @@ for m in range(0,1500):
 
 print(min_sum(five_sets))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

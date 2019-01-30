@@ -12,7 +12,7 @@
 
 import time
 from decimal import *
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #set the precision a little bit past 100
 getcontext().prec = 102
@@ -25,5 +25,5 @@ print(sum(sum(int(i) for i in (str((Decimal(str(j))).sqrt()))[:101]  if i.isnume
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

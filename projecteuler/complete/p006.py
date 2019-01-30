@@ -12,11 +12,11 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #one-liner python style
 print(abs(sum([i**2 for i in range(101)]) - sum(range(101))**2))
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

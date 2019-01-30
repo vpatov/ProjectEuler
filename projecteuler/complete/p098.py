@@ -12,7 +12,7 @@ import numpy as np
 import math
 import itertools
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 class mystr(str):
@@ -106,5 +106,5 @@ for anagram in word_anagrams:
 
 print(max_square)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

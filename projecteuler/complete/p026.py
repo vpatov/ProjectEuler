@@ -18,7 +18,7 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 def get_digits(num):
@@ -63,5 +63,5 @@ for d in range(1,1000):
     maxres = res
 
 print(maxlen)
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

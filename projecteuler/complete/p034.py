@@ -9,7 +9,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 facts = [1,1] + ([1] * 8)
 for i in range(2,10):
@@ -33,5 +33,5 @@ print(sum(filter(isSumFactsOfDigits,range(10,facts[9]))))
 #         sumNums += i
 # print(sumNums)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

@@ -13,7 +13,7 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 
@@ -31,5 +31,5 @@ while (i <= 999999):
     i+=1
 
 print(sumNums)
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

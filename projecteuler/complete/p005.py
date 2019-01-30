@@ -6,7 +6,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 prod = 1 * 2 * 3 *5 * 7 * 11 * 13 * 17 * 19
 next = [4,6,8,9,10,13,14,15,16,18]
@@ -27,5 +27,5 @@ while (not checkDivisibility(prod,20)):
     index += 1
 print(prod)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

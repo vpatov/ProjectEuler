@@ -9,7 +9,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 # First Attempt : Runs in about 50 seconds, and is slower than I'd like.
@@ -68,5 +68,5 @@ for i in range(0,len(cubeList)):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

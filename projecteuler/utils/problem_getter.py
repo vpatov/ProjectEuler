@@ -95,9 +95,9 @@ def getProblemText(url):
 #create .py files for all the project euler problems from start to end, inclusive
 def extractProblems(start,end,target_dir):
     
-    startTime = time.clock()
+    startTime = time.perf_counter()
     template = (
-      "import time\n" "import numpy as np\n" "startTime = time.clock()\n" "\n" "#code\n" "endTime = time.clock()\n"
+      "import time\n" "import numpy as np\n" "startTime = time.perf_counter()\n" "\n" "#code\n" "endTime = time.perf_counter()\n"
       "print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')\n"
     )
 
@@ -128,7 +128,7 @@ def extractProblems(start,end,target_dir):
     print("Successfully created "+ str(count_written) + " .py file(s) for problems numbered " + str(start) + " through " +
           str(end))
   
-    endTime = time.clock()
+    endTime = time.perf_counter()
     print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
 
 

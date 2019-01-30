@@ -16,7 +16,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 factorials = [1,1,2]
 for i in range(3,101):
@@ -49,5 +49,5 @@ while (n <= 100):
 print(count)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

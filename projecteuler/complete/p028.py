@@ -14,7 +14,7 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #numbers on diagonals = 1 ,     3,5,7,9,     13,17,21,25
 #                       1x1     3x3             5x5
@@ -35,5 +35,5 @@ print(sumNums)
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

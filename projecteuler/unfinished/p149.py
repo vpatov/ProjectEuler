@@ -22,8 +22,8 @@ For 56 k s _ k = [ s _ k-24 + s _ k-55 + 1000000] (modulo 1000000) - 500000.
 """
 import time
 import numpy as np
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #code
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

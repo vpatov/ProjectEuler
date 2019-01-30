@@ -13,7 +13,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 target = 1_500_000
 
@@ -68,5 +68,5 @@ print(tot_sum)
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

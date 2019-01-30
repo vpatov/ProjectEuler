@@ -18,7 +18,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #precomputed factorials
 facts = [1,1,2,6,24,120,720,5040,40320,362880]
@@ -53,5 +53,5 @@ for i in range(1,1000000):
 print(countSixty)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

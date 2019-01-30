@@ -17,7 +17,7 @@ import itertools
 import numpy as np
 import cProfile
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 # This problem obviously begs for the use of postfix notation.
 # Considering that we can only use four digits, and that a < b < c < d, there 
@@ -109,5 +109,5 @@ prof.print_stats()
 
 longest_set, longest_numbers, longest_results = main()
 print(''.join([str(i) for i in sorted(longest_numbers)]))
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

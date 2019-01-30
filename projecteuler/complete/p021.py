@@ -20,7 +20,7 @@ def debugVars(*names):
 import time
 from math import log,sqrt
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def divisors(n):
     divisors = set([1])
@@ -47,5 +47,5 @@ for b in range(0,10000):
 
 print(sum)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

@@ -16,7 +16,7 @@ from functools import reduce
 import numpy as np
 import itertools
 import cProfile
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 primes = getprimes()
@@ -68,5 +68,5 @@ def run():
 
 nums = run()
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

@@ -29,7 +29,7 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 f = getinput(11)
@@ -71,5 +71,5 @@ for i in range(0,20):
 print(maxProd)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

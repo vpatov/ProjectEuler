@@ -12,7 +12,7 @@
 import time
 import bitstring
 from math import log
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 MAXPRIME = 1000000
@@ -60,5 +60,5 @@ print(sum)
 #code
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

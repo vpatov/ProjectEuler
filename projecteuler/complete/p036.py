@@ -9,7 +9,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 "{0:b}".format(10)
 
@@ -23,5 +23,5 @@ print(sum(filter(palindromic,range(1,1000000))))
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

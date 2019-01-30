@@ -34,7 +34,7 @@ import itertools
 import random
 import numpy as np
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 # Good old fashioned constraint optimization problem
 # Seems like a good fit for the minimum conflicts heuristic
@@ -271,5 +271,5 @@ print(max_sum)
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

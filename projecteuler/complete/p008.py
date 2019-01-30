@@ -27,7 +27,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 
 import time
 from  projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 f = getinput(8)
 number = ''
@@ -49,5 +49,5 @@ for i in range(0,len(number) - 13):
 print(maxProd)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

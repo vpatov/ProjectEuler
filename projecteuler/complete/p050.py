@@ -12,7 +12,7 @@
 import time
 import numpy as np
 from projecteuler.utils.getprimes import getprimes
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 
@@ -46,5 +46,5 @@ for window in range(2,100):
 print(corresponding_prime)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

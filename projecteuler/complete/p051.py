@@ -20,7 +20,7 @@ import time
 import itertools
 import numpy as np
 from projecteuler.utils.getprimes import getprimes
-startTime = time.clock()
+startTime = time.perf_counter()
 
 # ignore single-digit primes 2,3,5,7
 primes = getprimes()
@@ -72,5 +72,5 @@ for p in primeset:
  
 print(min(candidate_primes)) 
   
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

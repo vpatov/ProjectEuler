@@ -10,7 +10,7 @@ How many different ways can £2 be made using any number of coins?
 
 import time
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 ##solution inspired by solution to another similar problem
 numWays = 0
@@ -39,5 +39,5 @@ while (i >= 0):
 print(numWays)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

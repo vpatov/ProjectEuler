@@ -6,7 +6,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #highest product of two 3-digit numbers is 999*999 = 998001
 
@@ -31,5 +31,5 @@ while (not found):
     j = bound
     bound -= 100
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

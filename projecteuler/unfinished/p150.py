@@ -31,8 +31,8 @@ Find the smallest possible sub-triangle sum.
 """
 import time
 import numpy as np
-startTime = time.clock()
+startTime = time.perf_counter()
 
 #code
-endTime = time.clock()
+endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')

@@ -40,7 +40,7 @@
 import time
 from collections import Counter
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 f = getinput(54)
 hands = [(hand.split()[:5],hand.split()[5:]) for hand in f.readlines() if len(hand) > 1]
@@ -203,6 +203,6 @@ for hand in hands:
         
 print(count_wins)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
 

@@ -20,7 +20,7 @@ $$
 
 import time
 from projecteuler.utils.getinput import getinput
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def pm(m):
   for row in m:
@@ -90,5 +90,5 @@ print(min([row[-1] for row in cost_matrix]))
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

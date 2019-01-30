@@ -5,7 +5,7 @@ What is the largest prime factor of the number 600851475143 ?
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 from math import sqrt
@@ -33,5 +33,5 @@ while (index > 0):
     index -= 1
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

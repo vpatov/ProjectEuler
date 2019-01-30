@@ -23,7 +23,7 @@ $$
 import time
 from projecteuler.utils.getinput import getinput
 from queue import PriorityQueue
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def pm(m):
   for row in m:
@@ -77,5 +77,5 @@ while(True):
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

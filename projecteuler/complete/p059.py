@@ -24,7 +24,7 @@
 import time
 from projecteuler.utils.getinput import getinput, getmisc
 import string
-startTime = time.clock()
+startTime = time.perf_counter()
 
 maxRatio = 0
 answerKey = None
@@ -91,5 +91,5 @@ print(sum(ord(a) for a in plaintext))
 
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

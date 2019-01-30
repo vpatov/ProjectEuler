@@ -18,7 +18,7 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 import time
 from math import log,sqrt
 
-startTime = time.clock()
+startTime = time.perf_counter()
 
 def divisors(n):
     divisors = set([1])
@@ -51,5 +51,5 @@ def cannotBeWritten(n):
 
 print(sum(filter((cannotBeWritten),range(28214))))
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime - startTime), "seconds.")

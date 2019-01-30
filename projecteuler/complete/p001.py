@@ -4,7 +4,7 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 sum = 0
 
@@ -14,5 +14,5 @@ for i in range(0,1000):
 
 print(sum)
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

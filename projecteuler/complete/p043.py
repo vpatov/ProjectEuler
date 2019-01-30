@@ -16,7 +16,7 @@
 
 import time
 import itertools
-startTime = time.clock()
+startTime = time.perf_counter()
 
 perms = itertools.permutations("1234576890")
 
@@ -58,5 +58,5 @@ for perm in perms:
         sumNums += int(current)
 
 print(sumNums)
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")

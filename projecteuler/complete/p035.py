@@ -9,7 +9,7 @@
 """
 
 import time
-startTime = time.clock()
+startTime = time.perf_counter()
 
 
 
@@ -43,5 +43,5 @@ for i in range(1,1000000):
 print(count)
 
 
-endTime = time.clock()
+endTime = time.perf_counter()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
