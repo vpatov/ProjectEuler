@@ -16,7 +16,7 @@ import time
 from projecteuler.utils.getinput import getinput
 import operator
 import functools
-startTime = time.clock()
+startTime = time.perf_count()
 
 def prod(iterable):
     return functools.reduce(operator.mul, iterable, 1)
@@ -61,5 +61,5 @@ for line in f:
 
 print(count)
 
-endTime = time.clock()
+endTime = time.perf_count()
 print("Time elapsed:", '{:0.6f}'.format(endTime-startTime), "seconds.")
