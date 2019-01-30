@@ -7,7 +7,8 @@ setup(
     author_email='vasiapatov@gmail.com',
     packages=['projecteuler', 'projecteuler.utils'],
     install_requires=[
-      'bitstring'
+      'bitstring',
+      'colorama'
     ],
     include_package_data=True
 )
