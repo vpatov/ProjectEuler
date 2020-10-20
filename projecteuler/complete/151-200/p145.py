@@ -12,8 +12,18 @@
  How many reversible numbers are there below one-billion (10^9 )?
 """
 import time
+import subprocess
 startTime = time.perf_counter()
+
+
+result = subprocess.run('gcc p145.c -pthread -o p145',shell=True)
+if (result.returncode != 0):
+    print("Make sure the c file is present. Are you in the right directory?")
+else:
+    print(subprocess.getoutput('./p145'))
+
 
 #code
 endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')
+
