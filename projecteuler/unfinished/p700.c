@@ -17,20 +17,27 @@ Find the sum of all Eulercoins.
 */
 
 int main(){
-    unsigned long sum_eulercoins = 0;
-    unsigned long modterm = 4503599627370517;
-    unsigned long coeff =   1504170715041707;
-    unsigned long smallest_eulercoin = modterm;
+    unsigned long long sum_eulercoins = 0;
+    unsigned long long modterm = 4503599627370517;
+    unsigned long long coeff =   1504170715041707;
+    // unsigned long long modterm = 5119;
+    // unsigned long long coeff =   1901;
+    unsigned long long smallest_eulercoin = 99999999999999999;
 
     // for (int n = 1; n < 10000; n++){
-    unsigned long n = 1;
-    while (1){
-        unsigned long current_term = (coeff * n) % modterm;
+    unsigned long long n = 1;
+    while (n <= modterm){
+        unsigned long long current_term = (coeff * n) % modterm;
+        if (current_term == 0){
+            // printf("reached 0. n: %llu\n", n);
+            break;
+        }
         if (current_term < smallest_eulercoin){
             sum_eulercoins += current_term;
+            printf("diff %llu\n", smallest_eulercoin - current_term);
             smallest_eulercoin = current_term;
-            printf("current_term: %lu\n", current_term);
-            printf("%lu: %lu\n",n, sum_eulercoins);
+            printf("current_term: %-8llu n: %llu\n", current_term, n);
+            // printf("n=%llu: sum=%llu\n",n, sum_eulercoins);
         }
         n++;
     }
