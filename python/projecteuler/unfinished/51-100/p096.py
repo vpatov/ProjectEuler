@@ -34,8 +34,125 @@
 """
 import time
 import numpy as np
+from  projecteuler.utils.getinput import getinput
+
 startTime = time.perf_counter()
 
-#code
+
+num_puzzles = 50
+f = getinput(96)
+i = 0
+puzzles = []
+while (i < num_puzzles):
+    puzzle = []
+    f.readline() #get rid of "Grid ##"
+    for j in range(0,9):
+        line = [int(k) for k in f.readline().strip()]
+        puzzle.append(line)
+    puzzles.append(puzzle)
+    i += 1
+
+def check_row(puzzle,i):
+    row_set = set()
+    for j in range(0,9):
+        cur = puzzle[i][j]
+        if cur == 0:
+            continue
+        if cur in row_set:
+            return False
+        row_set.add(cur)
+    del row_set
+    return True
+
+def check_col(puzzle,j):
+    col_set = set()
+    for i in range(0,9):
+        cur = puzzle[i][j]
+        if cur == 0:
+            continue
+        if cur in col_set:
+            return False
+        col_set.add(cur)
+    del col_set
+    return True
+
+def check_3x3box(puzzle,i,j):
+    box_set = set()
+    for x in range(i - (i%3),(i -  (i%3) + 3)):
+        for y in range(j - (j%3), (j - (j%3) + 3)):
+            cur = puzzle[x][y]
+            if cur == 0:
+                continue
+            if cur in box_set:
+                return False
+            box_set.add(cur)
+    del box_set
+    return True
+
+def place_num(puzzle,i,j,num):
+    new_puzzle = [row[:] for row in puzzle]
+    new_puzzle[i][j] = num
+    if (check_row(new_puzzle,i) and check_col(new_puzzle,j) and check_3x3box(new_puzzle,i,j)):
+        return new_puzzle
+    else:
+        del new_puzzle
+        return False
+
+def is_complete(puzzle):
+    for i in range(0,9):
+        for j in range(0,9):
+            if puzzle[i][j] == 0:
+                return False
+    return True
+
+def get_pos_cell(puzzle,i,j):
+    nums = set(range(1,10))
+    for x in range(0,9):
+        cur = puzzle[x][j]
+        if (cur and cur in nums):
+            nums.remove(cur)
+        cur = puzzle[i][x]
+        if (cur and cur in nums):
+            nums.remove(cur)
+    for x in range(i - (i % 3),i - (i % 3) + 3):
+        for y in range(j - (j % 3),j - (j % 3) + 3):
+            #print "genset:",x,y
+            cur = puzzle[x][y]
+            if (cur and cur in nums):
+                nums.remove(cur)
+    return nums
+def print_puzzle(puzzle):
+    for row in puzzle:
+        print(''.join([str(i) for i in row]))
+def solve(puzzle):
+    print("calling solve....")
+    for i in range(0,9):
+        for j in range(0,9):
+            if (puzzle[i][j] == 0):
+                nums = get_pos_cell(puzzle,i,j)
+                #print i,j, nums
+                if (len(nums) == 0):
+                    return False
+                for num in nums:
+                    new_puzzle = place_num(puzzle,i,j,num)
+                    if (new_puzzle):
+                        #print_puzzle(new_puzzle)
+                        #print ""
+                        if (is_complete(new_puzzle)):
+                            print_puzzle(new_puzzle)
+                            endTime = time.time()
+                            print("")
+                            print("time elapsed:", endTime - startTime)
+                            import sys
+                            sys.exit(0)
+                        else:
+                            # print "puzzle:"
+                            # print_puzzle(new_puzzle)
+                            # print ""
+                            solve(new_puzzle)
+
+startTime = time.time()
+solve(puzzles[0])
+
 endTime = time.perf_counter()
 print('Time elapsed:', '{:0.6f}'.format(endTime-startTime), 'seconds.')
